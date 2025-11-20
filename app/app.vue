@@ -51,12 +51,83 @@
           </button>
         </div>
       </section>
+
+      <BaseSection title="Education" description="">
+        <EducationCard 
+          v-for="(edu, index) in education" 
+          :key="index" 
+          :colors="useBlueCardColors()"
+          :education="edu"
+          :initial-is-open="true"
+        />
+      </BaseSection>
+
+      <BaseSection title="Skills" description="">
+        <SkillCard 
+          v-for="(skill, index) in skills" 
+          :key="index" 
+          :colors="useBlueCardColors()"
+          :skill="skill"
+          :initial-is-open="true"
+        />
+      </BaseSection>
+
+      <BaseSection title="Work Experience" description="">
+        <WorkExperienceCard 
+          v-for="(workExperience, index) in workExperiences" 
+          :key="index"
+          :colors="useBlueCardColors()"
+          :work-experience="workExperience"
+          :initial-is-open="true"
+        />
+      </BaseSection>
+
+      <BaseSection title="Projects" description="">
+        <ProjectCard 
+          v-for="(project, index) in projects" 
+          :key="index"
+          :colors="useBlueCardColors()"
+          :project="project"
+          :initial-is-open="true"
+        />
+      </BaseSection>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { Education, Project, Skill, WorkExperience } from '~/types'
+import { useBlueCardColors } from './composables'
+
+// TODO: fetch data from YAML or API 
+
+// --- Types & Data ---
+const education: Education[] = [
+  { school: 'University of Test', degree: 'BSc', description: 'Bachelor of Science, Class of 2018', fieldOfStudy: 'Computer Science', gpa: '3.8/4.0' },
+]
+
+const skills: Skill[] = [
+  { name: 'Go', category: 'Language', description: 'Proficient in Go programming for backend development.', level: 'Advanced' },
+  { name: 'SQL', category: 'Database', description: 'Experienced in designing and managing relational databases.', level: 'Intermediate' },
+]
+
+const workExperiences: WorkExperience[] = [
+  { company: 'Innovatech Corp.', position: 'Senior Developer', startDate: 'Jan 2022', endDate: '', location: 'San Francisco, CA', description: 'Leading a team of developers in building scalable cloud-based applications. Implementing best practices for code quality and performance optimization.' },
+  { company: 'Tech Solutions Inc.', position: 'Software Engineer', startDate: 'Jan 2019', endDate: 'Dec 2021', location: 'New York, NY', description: 'Developed web applications using Vue.js and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.' },
+]
+
+const projects: Project[] = [
+  { name: 'Resume Builder', category: 'Personal', description: 'A web app to create and manage professional resumes.', startDate: 'Mar 2021', endDate: 'Aug 2021', links: ['https://resumebuilder.test.io'], stacks: ['Vue.js', 'Node.js', 'Tailwind CSS'] },
+  { name: 'Task Manager', category: 'Work', description: 'A mobile app for task management and productivity.', startDate: 'Sep 2021', endDate: '', links: ['https://taskmgr.test.io'], stacks: ['Flutter', 'Firebase'] },
+]
 
 const serverUrl = ref('https://petstore3.swagger.io/api/v3')
 </script>
+
+<style>
+/* This reserves space for the scrollbar always */
+html {
+  scrollbar-gutter: stable;
+}
+</style>
