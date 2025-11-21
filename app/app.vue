@@ -39,7 +39,7 @@
         </div>
       </header>
 
-      <!-- TODO: language select? -->
+      <!-- LANGUAGE SELECT -->
       <section class="mb-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-2">
         <div class="relative w-full max-w-md">
           <label class="block text-xs font-bold text-slate-700 mb-1">Language</label>
@@ -148,7 +148,6 @@ watch(() => route.query.locale, (newLocale) => {
 </script>
 
 <style>
-/* This reserves space for the scrollbar always */
 html {
   scrollbar-gutter: stable;
 }

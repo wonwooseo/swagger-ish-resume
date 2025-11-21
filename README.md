@@ -1,75 +1,31 @@
-# Nuxt Minimal Starter
+# Swagger UI-ish Web Resume
+Vue 3 + Nuxt 4 web application to display resume in Swagger UI like style.
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Requirements
+Node v24+
 
 ## Setup
-
-Make sure to install dependencies:
-
+### Install Dependencies
 ```bash
-# npm
-npm install
+# if yarn is not installed
+npm install -g yarn
 
-# pnpm
-pnpm install
-
-# yarn
+# install dependencies
 yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+### Write resume YAML
+Place your resume YAML in `/content`. See `/content/.sample.yaml` for required structure.
 
-Start the development server on `http://localhost:3000`:
+### Configure app config
+Edit `/app/app.config.ts` and add resume's locale info and name of YAML file created in `/content` to `resume.locales`.
+> This maps YAML files in `/content` to Language dropdown selector on the web.
 
+## Run and Build
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
+# run local dev server
 yarn dev
 
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
+# build for deployment
 yarn build
-
-# bun
-bun run build
 ```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

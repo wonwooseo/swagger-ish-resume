@@ -1,6 +1,7 @@
-# This is a sample YAML file; fix or create resume.yaml according to your own information.
-#
-# IMPORTANT: all keys must be in camelCase
+# This is a sample yaml!
+# Create new yaml according to your own information and language, then configure on `/app/app.config.ts`.
+# 
+# IMPORTANT: all keys must be in camelCase.
 
 profile:
   name: John Smith # This will be the main title
