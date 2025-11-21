@@ -8,8 +8,8 @@
 </template>
 
 <script setup lang="ts">
-  const props = defineProps<{
+defineProps<{
     heading: string;
     text: string;
-  }>()
+  }>();
 </script>

@@ -6,9 +6,9 @@
   </div>
   <div class="text-slate-600 mb-5">
     <div class="flex flex-wrap gap-2">
-      <span 
-        v-for="(tag, index) in tags" 
-        :key="index" 
+      <span
+        v-for="(tag, index) in tags"
+        :key="index"
         class="px-2 py-1 rounded text-sm font-medium text-white bg-indigo-600"
       >
         {{ tag }}
@@ -18,8 +18,8 @@
 </template>
 
 <script setup lang="ts">
-  const props = defineProps<{
-    heading: string;
-    tags: string[];
-  }>()
+defineProps<{
+  heading: string;
+  tags: string[];
+}>();
 </script>

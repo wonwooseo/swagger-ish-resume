@@ -1,16 +1,17 @@
 <template>
   <div class="group">
     <!-- CARD HEADER -->
-    <div 
-      @click="toggle"
+    <div
       class="border flex items-center justify-between px-2 py-2 cursor-pointer transition-all select-none"
-      :class="[colors.bg, colors.border, isOpen ? 'rounded-t border-b-0' : 'rounded shadow-sm hover:shadow']"
+      :class="[cardColors.bg, cardColors.border, isOpen ? 'rounded-t border-b-0' : 'rounded shadow-sm hover:shadow']"
+      @click="toggle"
     >
       <div class="flex items-center">
         <!-- BADGE -->
-        <div 
-          class="w-20 text-center py-1 rounded text-sm font-bold text-white shrink-0 mr-4 shadow-sm"
-          :class="colors.badge"
+        <div
+          v-if="badge"
+          class="w-24 text-center py-1 rounded text-sm font-bold text-white shrink-0 mr-4 shadow-sm"
+          :class="cardColors.badge"
         >
           {{ badge }}
         </div>
@@ -22,7 +23,7 @@
       </div>
 
       <div class="text-sm text-slate-500 group-hover:text-black flex items-center gap-2">
-        <BaseChevron :isSectionOpen="!isOpen" />
+        <BaseChevron :is-section-open="!isOpen" />
       </div>
     </div>
 
@@ -35,7 +36,7 @@
       leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-2"
     >
-      <div v-if="isOpen" class="border-x border-b rounded-b p-4 text-sm" :class="[colors.bg, colors.border]">
+      <div v-if="isOpen" class="border-x border-b rounded-b p-4 text-sm" :class="[cardColors.bg, cardColors.border]">
         <div class="mb-6 text-slate-700">
           {{ bodyParagraph }}
         </div>
@@ -45,27 +46,33 @@
     </transition>
   </div>
 </template>
-  
+
 <script setup lang="ts">
-  import { ref } from 'vue'
+import { ref, computed } from 'vue';
 
-  const props = defineProps<{
-    colors: {
-      badge: string;
-      bg: string;
-      border: string;
-      text: string;
-    };
-    badge: string;
-    title: string;
-    bodyParagraph: string;
-    initialIsOpen?: boolean;
-  }>()
+const props = defineProps<{
+  colors?: {
+    badge?: string;
+    bg?: string;
+    border?: string;
+  };
+  badge?: string;
+  title: string;
+  bodyParagraph: string;
+  initialIsOpen?: boolean;
+}>();
 
-  // Internal state for the accordion
-  const isOpen = ref(props.initialIsOpen || false)
-  
-  const toggle = () => {
-    isOpen.value = !isOpen.value
-  }
+// Computed to ensure colors are properly handled
+const cardColors = computed(() => ({
+  badge: props.colors?.badge || 'bg-blue-600',
+  bg: props.colors?.bg || 'bg-blue-50/50',
+  border: props.colors?.border || 'border-blue-200',
+}));
+
+// Internal state for the accordion
+const isOpen = ref(props.initialIsOpen || false);
+
+const toggle = () => {
+  isOpen.value = !isOpen.value;
+};
 </script>

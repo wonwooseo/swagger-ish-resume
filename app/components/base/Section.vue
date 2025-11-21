@@ -1,17 +1,17 @@
 <template>
   <div class="mb-4">
     <!-- Section Header -->
-    <div 
-      class="border-b-2 border-gray-200 pb-2 mb-2 flex items-center justify-between cursor-pointer group select-none" 
+    <div
+      class="border-b-2 border-gray-200 pb-2 mb-2 flex items-center justify-between cursor-pointer group select-none"
       @click="isSectionOpen = !isSectionOpen"
     >
       <div class="flex items-baseline gap-3">
         <h2 class="text-2xl font-bold text-slate-700 group-hover:text-black">{{ title }}</h2>
         <p class="text-sm text-slate-500">{{ description }}</p>
       </div>
-      
+
       <div class="text-sm text-slate-500 group-hover:text-black flex items-center gap-2">
-        <BaseChevron :isSectionOpen="!isSectionOpen" />
+        <BaseChevron :is-section-open="!isSectionOpen" />
       </div>
     </div>
 
@@ -33,12 +33,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-const props = defineProps<{
+defineProps<{
   title: string;
   description: string;
-}>()
+}>();
 
-const isSectionOpen = ref(true)
+const isSectionOpen = ref(true);
 </script>

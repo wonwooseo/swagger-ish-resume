@@ -1,26 +1,18 @@
 <template>
   <BaseCard
-    :colors="colors"
-    :badge="skill.category"
+    :colors="{badge: skill.badge?.color, bg: skill.backgroundColor, border: skill.borderColor}"
+    :badge="skill.badge?.text"
     :title="skill.name"
-    :bodyParagraph="skill.description"
-    :initialIsOpen="initialIsOpen"
-  >
-    <BaseHeadingText :heading="'Level'" :text="skill.level" />
-  </BaseCard>
+    :body-paragraph="skill.description"
+    :initial-is-open="initialIsOpen"
+  />
 </template>
-  
-<script setup lang="ts">
-  import type { Skill } from '~/types'
 
-  const props = defineProps<{
-    colors: {
-      badge: string;
-      bg: string;
-      border: string;
-      text: string;
-    };
-    skill: Skill;
-    initialIsOpen?: boolean;
-  }>()
+<script setup lang="ts">
+import type { Skill } from '~/types';
+
+defineProps<{
+  skill: Skill;
+  initialIsOpen?: boolean;
+}>();
 </script>

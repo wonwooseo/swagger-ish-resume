@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
-  const props = defineProps<{
-    heading: string;
-    links: string[];
-  }>()
+defineProps<{
+  heading: string;
+  links: string[];
+}>();
 </script>
