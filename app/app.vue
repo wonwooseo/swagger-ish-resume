@@ -42,12 +42,15 @@
       <!-- TODO: language select? -->
       <section class="mb-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-2">
         <div class="relative w-full max-w-md">
-          <label class="block text-xs font-bold text-slate-700 mb-1">Servers</label>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Language</label>
           <select
+            v-model="selectedLocale"
             class="w-full p-2 border border-gray-300 rounded bg-white text-sm focus:outline-none focus:border-gray-500"
+            @change="onLocaleChange"
           >
-            <option value="https://petstore3.swagger.io/api/v3">https://petstore3.swagger.io/api/v3</option>
-            <option value="http://localhost:8080">http://localhost:8080</option>
+            <option v-for="locale in availableLocales" :key="locale.code" :value="locale.code">
+              {{ locale.name }}
+            </option>
           </select>
         </div>
 
@@ -104,11 +107,44 @@
 </template>
 
 <script setup lang="ts">
-import type { ResumeData } from '~/types';
+import { useResumeLoader } from './components/composable';
 
-const { data: resumeData } = await useAsyncData('resume', async () => {
-  const result = await queryCollection('resumes').first();
-  return result as ResumeData;
+const route = useRoute();
+const router = useRouter();
+const { loadResumeByLocale, availableLocales, defaultLocale } = useResumeLoader();
+
+const selectedLocale = ref(defaultLocale);
+
+const { data: resumeData, refresh } = await useAsyncData(
+  'resume',
+  () => loadResumeByLocale(selectedLocale.value),
+  { watch: [selectedLocale] },
+);
+
+const getInitialLocale = () => {
+  const queryLocale = route.query.locale as string;
+  const validLocale = availableLocales.find(locale => locale.code === queryLocale);
+  return validLocale ? validLocale.code : defaultLocale;
+}
+
+const onLocaleChange = async () => {
+  await router.push({
+    query: {
+      ...route.query,
+      locale: selectedLocale.value
+    }
+  })
+
+  await refresh();
+};
+
+watch(() => route.query.locale, (newLocale) => {
+  if (newLocale && typeof newLocale === 'string') {
+    const validLocale = availableLocales.find(locale => locale.code === newLocale);
+    if (validLocale && selectedLocale.value !== newLocale) {
+      selectedLocale.value = newLocale;
+    }
+  }
 });
 </script>
 
