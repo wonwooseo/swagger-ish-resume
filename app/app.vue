@@ -113,19 +113,11 @@ const route = useRoute();
 const router = useRouter();
 const { loadResumeByLocale, availableLocales, defaultLocale } = useResumeLoader();
 
-const selectedLocale = ref(defaultLocale);
-
-const { data: resumeData, refresh } = await useAsyncData(
-  'resume',
-  () => loadResumeByLocale(selectedLocale.value),
-  { watch: [selectedLocale] },
-);
-
 const getInitialLocale = () => {
   const queryLocale = route.query.locale as string;
   const validLocale = availableLocales.find(locale => locale.code === queryLocale);
   return validLocale ? validLocale.code : defaultLocale;
-}
+};
 
 const onLocaleChange = async () => {
   await router.push({
@@ -134,9 +126,16 @@ const onLocaleChange = async () => {
       locale: selectedLocale.value
     }
   })
-
   await refresh();
 };
+
+const selectedLocale = ref(getInitialLocale());
+
+const { data: resumeData, refresh } = await useAsyncData(
+  'resume',
+  () => loadResumeByLocale(selectedLocale.value),
+  { watch: [selectedLocale] },
+);
 
 watch(() => route.query.locale, (newLocale) => {
   if (newLocale && typeof newLocale === 'string') {
