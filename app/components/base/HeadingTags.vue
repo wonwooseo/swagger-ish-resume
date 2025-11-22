@@ -9,7 +9,7 @@
       <span
         v-for="(tag, index) in tags"
         :key="index"
-        class="px-2 py-1 rounded text-sm font-medium text-white bg-indigo-600"
+        class="px-2 py-1 rounded text-sm font-medium text-white bg-gray-500"
       >
         {{ tag }}
       </span>
