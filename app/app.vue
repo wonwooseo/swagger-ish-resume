@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-white p-8 font-sans text-slate-800">
     <div v-if="resumeData" class="max-w-[1000px] mx-auto">
       <header class="mb-10">
-        <div class="flex items-end gap-3 mb-2">
+        <div class="flex items-start gap-3 mb-2">
           <!-- TITLE -->
           <h1 class="text-4xl font-bold text-slate-800">{{ resumeData.profile?.name || 'Resume' }}</h1>
           <!-- BADGES -->
