@@ -104,6 +104,16 @@
       <div class="text-slate-600">Loading resume data...</div>
     </div>
   </div>
+
+  <!-- FOOTER -->
+  <footer class="mt-16 text-center text-sm text-slate-500 bg-gray-200 py-8">
+    <p class="text-blue-500 mb-5"><a href="#" class="hover:underline">Back to Top</a></p>
+    <i class="flex items-center justify-center gap-2 mt-2">
+      <a href="https://github.com/wonwooseo/swagger-ish-resume" target="_blank" rel="noopener noreferrer">
+        <img src="assets/github-mark.png" alt="GitHub" class="w-6 h-6" />
+      </a>
+    </i>
+  </footer>
 </template>
 
 <script setup lang="ts">
