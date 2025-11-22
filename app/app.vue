@@ -55,11 +55,11 @@
         </div>
 
         <!-- TODO: download PDF version -->
-        <div class="self-end sm:self-center">
+        <!-- <div class="self-end sm:self-center">
           <button class="flex items-center gap-2 border-2 border-green-500 text-green-500 px-4 py-1.5 rounded font-bold hover:bg-green-50 transition-colors">
             Download PDF Version
           </button>
-        </div>
+        </div> -->
       </section>
 
       <BaseSection title="Education" description="">
