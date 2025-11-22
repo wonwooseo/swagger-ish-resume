@@ -23,7 +23,7 @@
 
         <!-- CONTACTS -->
         <div v-if="resumeData.profile" class="text-sm mb-4">
-          <p class="mb-1">Contacts:</p>
+          <p class="mb-1"><b>Contacts:</b></p>
           <ul class="list-disc list-inside text-blue-500">
             <li><a :href="`tel:${resumeData.profile.phone}`" class="hover:underline"> {{ resumeData.profile.phone }} </a></li>
             <li><a :href="`mailto:${resumeData.profile.email}`" class="hover:underline"> {{ resumeData.profile.email }} </a></li>
@@ -32,9 +32,9 @@
 
         <!-- WEBSITES -->
         <div v-if="resumeData.profile?.websites?.length" class="text-sm mb-4">
-          <p class="mb-1">Websites:</p>
+          <p class="mb-1"><b>Websites:</b></p>
           <ul class="list-disc list-inside text-blue-500">
-            <li v-for="(website, index) in resumeData.profile.websites" :key="index"><a :href="website" class="block hover:underline"> {{ website }}</a></li>
+            <li v-for="(website, index) in resumeData.profile.websites" :key="index"><a :href="website" class="hover:underline"> {{ website }}</a></li>
           </ul>
         </div>
       </header>
