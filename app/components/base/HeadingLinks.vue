@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="text-slate-600 mb-5">
-    <ul class="list-disc list-inside space-y-1">
+    <ul class="list-disc list-inside text-blue-500 space-y-1">
       <li v-for="(link, index) in links" :key="index"><a :href="link">{{ link }}</a></li>
     </ul>
   </div>
