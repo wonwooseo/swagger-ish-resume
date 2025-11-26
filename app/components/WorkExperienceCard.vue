@@ -6,10 +6,22 @@
     :body-paragraph="workExperience.description"
     :initial-is-open="initialIsOpen"
   >
-    <BaseHeadingText :heading="'Position'" :text="workExperience.position" />
-    <BaseHeadingText :heading="'Dates of Employment'" :text="`${workExperience.startDate} - ${workExperience.endDate ? workExperience.endDate : 'Present'}`" />
-    <BaseHeadingText v-if="workExperience.location" :heading="'Location'" :text="workExperience.location" />
-  </BaseCard>
+    <BaseHeading :heading="'Position'">
+      <div class="text-slate-600 mb-5">{{ workExperience.position }}</div>
+    </BaseHeading>
+    <BaseHeading v-if="workExperience.location" :heading="'Location'">
+      <div class="text-slate-600 mb-5">{{ workExperience.location }}</div>
+    </BaseHeading>
+    <BaseHeading :heading="'Achievements'">
+      <AchievementCard
+        v-if="workExperience.achievements"
+        v-for="(achievement, index) in workExperience.achievements"
+        :key="index"
+        :colors="{bg: workExperience.backgroundColor, border: workExperience.borderColor}"
+        :achievement="achievement"
+        :initial-is-open="initialIsOpen" />
+    </BaseHeading>
+</BaseCard>
 </template>
 
 <script setup lang="ts">

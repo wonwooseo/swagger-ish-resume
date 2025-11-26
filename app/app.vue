@@ -80,7 +80,7 @@
         />
       </BaseSection>
 
-      <BaseSection title="Work Experience" description="">
+      <BaseSection v-if="resumeData.workExperiences" title="Work Experience" description="">
         <WorkExperienceCard
           v-for="(workExperience, index) in resumeData.workExperiences || []"
           :key="index"
@@ -89,9 +89,9 @@
         />
       </BaseSection>
 
-      <BaseSection title="Projects" description="">
-        <ProjectCard
-          v-for="(project, index) in resumeData.projects || []"
+      <BaseSection v-if="resumeData.personalProjects" title="Personal Projects" description="">
+        <PersonalProjectCard
+          v-for="(project, index) in resumeData.personalProjects || []"
           :key="index"
           :project="project"
           :initial-is-open="true"

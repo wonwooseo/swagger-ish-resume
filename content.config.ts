@@ -64,9 +64,16 @@ export default defineContentConfig({
             location: z.string(),
             startDate: z.string(),
             endDate: z.string(),
+            achievements: z.array(
+              z.object({
+                name: z.string(),
+                description: z.array(z.string()),
+                stacks: z.array(z.string()),
+              }),
+            ).optional(),
           }),
         ),
-        projects: z.array(
+        personalProjects: z.array(
           z.object({
             backgroundColor: z.string().optional(),
             borderColor: z.string().optional(),
@@ -76,8 +83,6 @@ export default defineContentConfig({
               color: z.string(),
             }).optional(),
             description: z.string(),
-            startDate: z.string(),
-            endDate: z.string(),
             websites: z.array(z.string().url()).optional(),
             stacks: z.array(z.string()).optional(),
           }),

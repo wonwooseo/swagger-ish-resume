@@ -31,6 +31,12 @@ export interface Skill {
   description: string;
 }
 
+export interface Achievement {
+  name: string;
+  description: string[];
+  stacks: string[];
+}
+
 export interface WorkExperience {
   backgroundColor?: string;
   borderColor?: string;
@@ -39,18 +45,15 @@ export interface WorkExperience {
   position: string;
   description: string;
   location: string;
-  startDate: string;
-  endDate: string;
+  achievements?: Achievement[];
 }
 
-export interface Project {
+export interface PersonalProject {
   backgroundColor?: string;
   borderColor?: string;
   name: string;
   badge?: Badge;
   description: string;
-  startDate: string;
-  endDate: string;
   websites?: string[];
   stacks?: string[];
 }
@@ -59,6 +62,6 @@ export interface ResumeData {
   profile: Profile;
   education: Education[];
   skills: Skill[];
-  workExperiences: WorkExperience[];
-  projects: Project[];
+  workExperiences?: WorkExperience[];
+  personalProjects?: PersonalProject[];
 }

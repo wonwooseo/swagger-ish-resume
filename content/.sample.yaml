@@ -19,81 +19,86 @@ profile:
     - https://linkedin.com/in/johnsmith
 
 education:
-  - backgroundColor: bg-blue-600
-    borderColor: border-blue-800
+  - backgroundColor: bg-blue-50/50
+    borderColor: border-blue-200
     institution: University of California, Berkeley
-    badge: # Badge to display at header of the card
-      text: B.Sc.
-      color: bg-blue-500
     degree: Bachelor of Science in Computer Science
     description: Graduated with honors, focusing on software engineering and algorithms.
     gpa: 3.8/4.0
 
 skills:
-  - backgroundColor: bg-green-600
-    borderColor: border-green-800
-    name: Go
-    badge:
-      text: Expert
-      color: bg-green-500
-    description: Extensive experience in building scalable backend services using Go.
-  - backgroundColor: bg-yellow-600
-    borderColor: border-yellow-800
-    name: Vue.js
-    badge:
-      text: Proficient
-      color: bg-green-500
-    description: Developed multiple single-page applications using Vue.js framework.
+  - backgroundColor: bg-green-50/50
+    borderColor: border-green-200
+    name: Programming Languages
+    description: Go, Python, Vue.js
+  - backgroundColor: bg-green-50/50
+    borderColor: border-green-200
+    name: Cloud & DevOps
+    description: Docker, Kubernetes, AWS
+  - backgroundColor: bg-amber-50/50
+    borderColor: border-amber-200
+    name: Database
+    description: MySQL, MongoDB, PostgreSQL
 
 workExperiences:
-  - backgroundColor: bg-green-600
-    borderColor: border-green-800
+  - backgroundColor: bg-green-50/50
+    borderColor: border-green-200
     company: Tech Innovators Inc.
-    badge:
-      text: Full-time
-      color: bg-green-500
     position: Senior Software Engineer
     description: Led a team of developers in creating cloud-native applications and microservices.
     location: Chicago, IL, USA
     startDate: Jun 2018
     endDate: Present
-  - backgroundColor: bg-blue-600
-    borderColor: border-blue-800
+    achievements:
+      - name: "Project: Cloud Migration"
+        description: 
+          - Developed a microservices architecture that improved system scalability.
+          - Implemented CI/CD pipelines, reducing deployment time by 50%.
+        stacks:
+          - Go
+          - Docker
+          - Kubernetes
+      - name: "Project: Real-time Analytics"
+        description: 
+          - Designed and implemented a real-time analytics platform using Go and Kafka.
+          - Enhanced data processing speed by 30% through optimized algorithms.
+        stacks:
+          - Go
+          - Kafka
+          - PostgreSQL
+  - backgroundColor: bg-blue-50/50
+    borderColor: border-blue-200
     company: Web Solutions LLC
-    badge:
-      text: Internship
-      color: bg-blue-500
     position: Software Engineering Intern
     description: Assisted in developing web applications and improving user interfaces.
     location: New York, NY, USA
     startDate: Jun 2014
     endDate: Aug 2014
+    achievements:
+      - name: "Project: E-commerce Website"
+        description: 
+          - Contributed to the development of a responsive e-commerce website using Vue.js.
+          - Improved user experience by implementing dynamic content loading.
+        stacks:
+          - Vue.js
+          - HTML
+          - CSS
 
-projects:
-  - backgroundColor: bg-blue-600
-    borderColor: border-blue-800
+personalProjects:
+  - backgroundColor: bg-blue-50/50
+    borderColor: border-blue-200
     name: Open Source Library XYZ
-    badge:
-      text: Maintainer
-      color: bg-blue-500
     description: Created and maintained an open-source library for data processing, used by thousands of developers worldwide.
-    startDate: Jan 2019
-    endDate: Present
     websites:
       - https://johnsmith.dev/xyz
     stacks:
       - Python
       - Docker
       - Kubernetes
-  - backgroundColor: bg-green-600
-    borderColor: border-green-800
+  - backgroundColor: bg-green-50/50
+    borderColor: border-green-200
     name: Personal Portfolio Website
-    badge:
-      text: Creator
-      color: bg-green-500
     description: Developed a personal portfolio website to showcase projects and skills.
-    startDate: May 2020
-    endDate: Jun 2020
     websites:
       - https://johnsmith.dev
     stacks:
