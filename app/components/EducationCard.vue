@@ -6,8 +6,12 @@
     :body-paragraph="education.description"
     :initial-is-open="initialIsOpen"
   >
-    <BaseHeadingText :heading="'Degree'" :text="education.degree" />
-    <BaseHeadingText :heading="'GPA'" :text="education.gpa" />
+    <BaseHeading :heading="'Degree'">
+      <div class="text-slate-600 mb-5">{{ education.degree }}</div>
+    </BaseHeading>
+    <BaseHeading :heading="'GPA'">
+      <div class="text-slate-600 mb-5">{{ education.gpa }}</div>
+    </BaseHeading>
   </BaseCard>
 </template>
 
