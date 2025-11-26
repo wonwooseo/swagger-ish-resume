@@ -3,7 +3,7 @@
     <!-- CARD HEADER -->
     <div
       class="border flex items-center justify-between px-2 py-2 cursor-pointer transition-all select-none"
-      :class="[cardColors.bg, cardColors.border, isOpen ? 'rounded-t border-b-0' : 'rounded shadow-sm hover:shadow']"
+      :class="[cardColors.bg, cardColors.border, isOpen ? 'rounded-t border' : 'rounded shadow-sm hover:shadow']"
       @click="toggle"
     >
       <div class="flex items-center">
