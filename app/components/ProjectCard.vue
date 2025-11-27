@@ -19,7 +19,7 @@
         </ul>
       </div>
     </BaseHeading>
-    <BaseHeading v-if="selectedProject?.stacks" :heading="'Used Stacks'">
+    <BaseHeading v-if="selectedProject?.stacks" heading="Stacks">
       <div class="text-slate-700 mb-5 p-3">
         <div class="flex flex-wrap gap-2">
           <span

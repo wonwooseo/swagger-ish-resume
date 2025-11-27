@@ -28,7 +28,7 @@
             </ul>
           </div>
         </BaseSubheading>
-        <BaseSubheading heading="Used Stacks">
+        <BaseSubheading heading="Stacks">
           <div class="text-slate-700 mb-5 px-3">
             <div class="flex flex-wrap gap-2">
               <span
