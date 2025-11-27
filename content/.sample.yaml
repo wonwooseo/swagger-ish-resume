@@ -16,7 +16,7 @@ contact:
   phone: +1 555-123-4567
   email: john.smith@example.io
 location: San Francisco, CA, USA
-website:
+websites:
   - https://johnsmith.dev
   - https://linkedin.com/in/johnsmith
 
