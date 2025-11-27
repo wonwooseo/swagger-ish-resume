@@ -105,7 +105,7 @@
     <p class="text-blue-500 mb-5"><a href="#" class="hover:underline">Back to Top</a></p>
     <i class="flex items-center justify-center gap-2 mt-2">
       <a href="https://github.com/wonwooseo/swagger-ish-resume" target="_blank" rel="noopener noreferrer">
-        <img src="assets/github-mark.png" alt="GitHub" class="w-6 h-6" />
+        <img src="assets/github-mark.png" alt="GitHub" class="w-6 h-6" >
       </a>
     </i>
   </footer>
@@ -129,9 +129,9 @@ const onLocaleChange = async () => {
   await router.push({
     query: {
       ...route.query,
-      locale: selectedLocale.value
-    }
-  })
+      locale: selectedLocale.value,
+    },
+  });
   await refresh();
 };
 

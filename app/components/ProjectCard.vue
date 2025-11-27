@@ -4,10 +4,10 @@
     :initial-is-open="initialIsOpen"
   >
     <BaseDropdown
+      v-model="selectedProject"
       :options="projectList"
       :option-display-attribute="'name'"
       heading="Name"
-      v-model="selectedProject"
     />
     <BaseHeading :heading="'Description'">
       <div class="text-slate-700 mb-5 p-3">{{ selectedProject?.description }}</div>

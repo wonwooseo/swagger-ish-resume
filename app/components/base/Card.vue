@@ -74,7 +74,7 @@ const cardConfig = computed(() => ({
   badge: {
     color: props.config?.badge?.color || 'bg-blue-600',
     text: props.config?.badge?.text || 'GET',
-  }
+  },
 }));
 
 // Internal state for the accordion

@@ -4,10 +4,10 @@
     :initial-is-open="initialIsOpen"
   >
     <BaseDropdown
+      v-model="selectedSkill"
       :options="skillList"
       :option-display-attribute="'category'"
       heading="Category"
-      v-model="selectedSkill"
     />
     <BaseHeading :heading="'Skills'">
       <div class="text-slate-700 mb-5 p-3">

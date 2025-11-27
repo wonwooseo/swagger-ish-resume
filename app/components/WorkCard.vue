@@ -4,10 +4,10 @@
     :initial-is-open="initialIsOpen"
   >
     <BaseDropdown
+      v-model="selectedWork"
       :options="workList"
       :option-display-attribute="'company'"
       heading="Company"
-      v-model="selectedWork"
     />
     <BaseHeading :heading="'Position'">
       <div class="text-slate-700 mb-5 p-3">{{ selectedWork?.position }}</div>
@@ -24,7 +24,7 @@
         <BaseSubheading :heading="achievement.name">
           <div class="text-slate-700 mb-5 px-3">
             <ul class="list-disc list-inside">
-              <li v-for="(desc, index) in achievement.descriptions" :key="index">{{ desc }}</li>
+              <li v-for="(desc, sidx) in achievement.descriptions" :key="sidx">{{ desc }}</li>
             </ul>
           </div>
         </BaseSubheading>
@@ -32,8 +32,8 @@
           <div class="text-slate-700 mb-5 px-3">
             <div class="flex flex-wrap gap-2">
               <span
-                v-for="(stack, index) in achievement.stacks"
-                :key="index"
+                v-for="(stack, sidx) in achievement.stacks"
+                :key="sidx"
                 class="px-2 py-1 rounded text-sm font-medium text-white bg-indigo-500"
               >
                 {{ stack }}
