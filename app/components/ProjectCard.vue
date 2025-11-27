@@ -9,6 +9,9 @@
       heading="Name"
       v-model="selectedProject"
     />
+    <BaseHeading :heading="'Description'">
+      <div class="text-slate-700 mb-5 p-3">{{ selectedProject?.description }}</div>
+    </BaseHeading>
     <BaseHeading v-if="selectedProject?.websites" :heading="'Websites'">
       <div class="text-slate-700 mb-5 p-3">
         <ul class="list-disc list-inside text-blue-500">
