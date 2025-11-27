@@ -16,7 +16,7 @@
         </div>
 
         <!-- TITLE -->
-        <div class="font-bold text-slate-700 text-base flex items-center gap-2">
+        <div class="font-bold font-mono text-slate-700 text-base flex items-center gap-2">
           {{ title }}
         </div>
 

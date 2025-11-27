@@ -1,6 +1,6 @@
 <template>
   <BaseCard
-    :title="`/skills/{category}`"
+    :title="`/skill/{category}`"
     :initial-is-open="initialIsOpen"
   >
     <BaseDropdown
