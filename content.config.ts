@@ -10,78 +10,52 @@ export default defineContentConfig({
         exclude: ['.sample.yaml'],
       },
       schema: z.object({
-        profile: z.object({
-          name: z.string(),
-          badges: z.array(
-            z.object({
-              text: z.string(),
-              color: z.string(),
-            }),
-          ).optional(),
-          description: z.string(),
+        title: z.string(),
+        badges: z.array(
+          z.object({
+            text: z.string(),
+            color: z.string(),
+          }),
+        ).optional(),
+        summary: z.string(),
+        contact: z.object({
           phone: z.string(),
           email: z.string().email(),
-          location: z.string(),
-          websites: z.array(z.string().url()),
         }),
+        location: z.string(),
+        websites: z.array(z.string().url()),
         education: z.array(
           z.object({
-            backgroundColor: z.string().optional(),
-            borderColor: z.string().optional(),
             institution: z.string(),
-            badge: z.object({
-              text: z.string(),
-              color: z.string(),
-            }).optional(),
+            location: z.string(),
             degree: z.string(),
-            description: z.string(),
             gpa: z.string(),
           }),
         ),
-        skills: z.array(
+        skill: z.array(
           z.object({
-            backgroundColor: z.string().optional(),
-            borderColor: z.string().optional(),
-            name: z.string(),
-            badge: z.object({
-              text: z.string(),
-              color: z.string(),
-            }).optional(),
-            description: z.string(),
+            category: z.string(),
+            list: z.array(z.string()),
           }),
         ),
-        workExperiences: z.array(
+        work: z.array(
           z.object({
-            backgroundColor: z.string().optional(),
-            borderColor: z.string().optional(),
             company: z.string(),
-            badge: z.object({
-              text: z.string(),
-              color: z.string(),
-            }).optional(),
             position: z.string(),
             description: z.string(),
             location: z.string(),
-            startDate: z.string(),
-            endDate: z.string(),
             achievements: z.array(
               z.object({
                 name: z.string(),
-                description: z.array(z.string()),
+                descriptions: z.array(z.string()),
                 stacks: z.array(z.string()),
               }),
             ).optional(),
           }),
         ),
-        personalProjects: z.array(
+        project: z.array(
           z.object({
-            backgroundColor: z.string().optional(),
-            borderColor: z.string().optional(),
             name: z.string(),
-            badge: z.object({
-              text: z.string(),
-              color: z.string(),
-            }).optional(),
             description: z.string(),
             websites: z.array(z.string().url()).optional(),
             stacks: z.array(z.string()).optional(),

@@ -1,16 +1,19 @@
 <template>
   <BaseCard
-    :colors="{badge: education.badge?.color, bg: education.backgroundColor, border: education.borderColor}"
-    :badge="education.badge?.text"
-    :title="education.institution"
-    :body-paragraph="education.description"
+    :title="'/education/{institution}'"
     :initial-is-open="initialIsOpen"
   >
+    <BaseDropdown
+      :options="educationList"
+      :option-display-attribute="'institution'"
+      heading="Institution"
+      v-model="selectedEducation"
+    />
     <BaseHeading :heading="'Degree'">
-      <div class="text-slate-600 mb-5">{{ education.degree }}</div>
+      <div class="text-slate-700 mb-5 p-3">{{ selectedEducation?.degree }}</div>
     </BaseHeading>
     <BaseHeading :heading="'GPA'">
-      <div class="text-slate-600 mb-5">{{ education.gpa }}</div>
+      <div class="text-slate-700 mb-5 p-3">{{ selectedEducation?.gpa }}</div>
     </BaseHeading>
   </BaseCard>
 </template>
@@ -18,8 +21,10 @@
 <script setup lang="ts">
 import type { Education } from '~/types';
 
-defineProps<{
-  education: Education;
+const props = defineProps<{
+  educationList: Education[];
   initialIsOpen?: boolean;
 }>();
+
+const selectedEducation = ref(props.educationList[0] ? props.educationList[0] : null);
 </script>

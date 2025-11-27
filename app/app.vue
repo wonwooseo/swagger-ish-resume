@@ -4,10 +4,10 @@
       <header class="mb-10">
         <div class="flex items-start gap-3 mb-2">
           <!-- TITLE -->
-          <h1 class="text-4xl font-bold text-slate-800">{{ resumeData.profile?.name || 'Resume' }}</h1>
+          <h1 class="text-4xl font-bold text-slate-800">{{ resumeData.title || 'Resume' }}</h1>
           <!-- BADGES -->
           <span
-            v-for="(badge, index) in resumeData.profile?.badges || []"
+            v-for="(badge, index) in resumeData.badges || []"
             :key="index"
             :class="badge.color"
             class="text-white text-xs font-bold px-2 py-1 rounded-full mb-1"
@@ -16,25 +16,25 @@
           </span>
         </div>
 
-        <!-- DESCRIPTION -->
-        <p class="text-sm leading-relaxed mb-4 text-slate-600">
-          {{ resumeData.profile?.description || '' }}
+        <!-- SUMMARY -->
+        <p class="text-sm leading-relaxed mb-4 text-slate-700">
+          {{ resumeData.summary || '' }}
         </p>
 
         <!-- CONTACTS -->
-        <div v-if="resumeData.profile" class="text-sm mb-4">
+        <div class="text-sm mb-4">
           <p class="mb-1"><b>Contacts:</b></p>
           <ul class="list-disc list-inside text-blue-500">
-            <li><a :href="`tel:${resumeData.profile.phone}`" class="hover:underline"> {{ resumeData.profile.phone }} </a></li>
-            <li><a :href="`mailto:${resumeData.profile.email}`" class="hover:underline"> {{ resumeData.profile.email }} </a></li>
+            <li><a :href="`tel:${resumeData.contact.phone}`" class="hover:underline"> {{ resumeData.contact.phone }} </a></li>
+            <li><a :href="`mailto:${resumeData.contact.email}`" class="hover:underline"> {{ resumeData.contact.email }} </a></li>
           </ul>
         </div>
 
         <!-- WEBSITES -->
-        <div v-if="resumeData.profile?.websites?.length" class="text-sm mb-4">
+        <div v-if="resumeData.websites?.length" class="text-sm mb-4">
           <p class="mb-1"><b>Websites:</b></p>
           <ul class="list-disc list-inside text-blue-500">
-            <li v-for="(website, index) in resumeData.profile.websites" :key="index"><a :href="website" class="hover:underline"> {{ website }}</a></li>
+            <li v-for="(website, index) in resumeData.websites" :key="index"><a :href="website" class="hover:underline"> {{ website }}</a></li>
           </ul>
         </div>
       </header>
@@ -42,10 +42,10 @@
       <!-- LANGUAGE SELECT -->
       <section class="mb-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-2">
         <div class="relative w-full max-w-md">
-          <label class="block text-xs font-bold text-slate-700 mb-1">Language</label>
+          <label class="block font-bold text-slate-700 mb-1">Language</label>
           <select
             v-model="selectedLocale"
-            class="w-full p-2 border border-gray-300 rounded bg-white text-sm focus:outline-none focus:border-gray-500"
+            class="w-1/2 p-2 border border-gray-300 rounded bg-white text-sm focus:outline-none focus:border-gray-500"
             @change="onLocaleChange"
           >
             <option v-for="locale in availableLocales" :key="locale.code" :value="locale.code">
@@ -62,38 +62,33 @@
         </div> -->
       </section>
 
-      <BaseSection title="Education" description="">
+      <BaseSection v-if="resumeData.education" title="Education" description="">
+        <!-- GET /education/{institution} -->
         <EducationCard
-          v-for="(edu, index) in resumeData.education || []"
-          :key="index"
-          :education="edu"
+          :education-list="resumeData.education"
           :initial-is-open="true"
         />
       </BaseSection>
 
-      <BaseSection title="Skills" description="">
+      <BaseSection v-if="resumeData.skill" title="Technical Skills" description="">
+        <!-- GET /skill/{category} -->
         <SkillCard
-          v-for="(skill, index) in resumeData.skills || []"
-          :key="index"
-          :skill="skill"
+          :skill-list="resumeData.skill"
           :initial-is-open="true"
         />
       </BaseSection>
 
-      <BaseSection v-if="resumeData.workExperiences" title="Work Experience" description="">
-        <WorkExperienceCard
-          v-for="(workExperience, index) in resumeData.workExperiences || []"
-          :key="index"
-          :work-experience="workExperience"
+      <BaseSection v-if="resumeData.work" title="Work Experience" description="">
+        <!-- GET /work/{company} -->
+        <WorkCard
+          :work-list="resumeData.work"
           :initial-is-open="true"
         />
       </BaseSection>
 
-      <BaseSection v-if="resumeData.personalProjects" title="Personal Projects" description="">
-        <PersonalProjectCard
-          v-for="(project, index) in resumeData.personalProjects || []"
-          :key="index"
-          :project="project"
+      <BaseSection v-if="resumeData.project" title="Personal Projects" description="">
+        <ProjectCard
+          :project-list="resumeData.project"
           :initial-is-open="true"
         />
       </BaseSection>
@@ -101,7 +96,7 @@
 
     <!-- Loading state -->
     <div v-else class="min-h-screen flex items-center justify-center">
-      <div class="text-slate-600">Loading resume data...</div>
+      <div class="text-slate-700">Loading resume data...</div>
     </div>
   </div>
 
@@ -118,6 +113,7 @@
 
 <script setup lang="ts">
 import { useResumeLoader } from './components/composable';
+import WorkCard from './components/WorkCard.vue';
 
 const route = useRoute();
 const router = useRouter();

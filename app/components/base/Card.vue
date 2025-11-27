@@ -3,22 +3,26 @@
     <!-- CARD HEADER -->
     <div
       class="border flex items-center justify-between px-2 py-2 cursor-pointer transition-all select-none"
-      :class="[cardColors.bg, cardColors.border, isOpen ? 'rounded-t border' : 'rounded shadow-sm hover:shadow']"
+      :class="[cardConfig.bg, cardConfig.border, isOpen ? 'rounded-t border' : 'rounded shadow-sm hover:shadow']"
       @click="toggle"
     >
       <div class="flex items-center">
         <!-- BADGE -->
         <div
-          v-if="badge"
-          class="w-24 text-center py-1 rounded text-sm font-bold text-white shrink-0 mr-4 shadow-sm"
-          :class="cardColors.badge"
+          class="w-20 text-center py-1 rounded text-sm font-bold text-white shrink-0 mr-4 shadow-sm"
+          :class="cardConfig.badge.color"
         >
-          {{ badge }}
+          {{ cardConfig.badge.text }}
         </div>
 
         <!-- TITLE -->
         <div class="font-bold text-slate-700 text-base flex items-center gap-2">
           {{ title }}
+        </div>
+
+        <!-- SUMMARY -->
+        <div v-if="summary" class="ml-4 text-sm text-slate-500">
+          {{ summary }}
         </div>
       </div>
 
@@ -36,9 +40,9 @@
       leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-2"
     >
-      <div v-if="isOpen" class="border-x border-b rounded-b p-4 text-sm" :class="[cardColors.bg, cardColors.border]">
-        <div class="mb-6 text-slate-700">
-          {{ bodyParagraph }}
+      <div v-if="isOpen" class="border-x border-b rounded-b text-sm" :class="[cardConfig.bg, cardConfig.border]">
+        <div v-if="description" class="mb-6 text-slate-700">
+          {{ description }}
         </div>
         <!-- Inject card contents here -->
         <slot/>
@@ -48,25 +52,29 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-
 const props = defineProps<{
-  colors?: {
-    badge?: string;
+  config?: {
     bg?: string;
     border?: string;
+    badge?: {
+      color: string;
+      text: string;
+    }
   };
-  badge?: string;
   title: string;
-  bodyParagraph: string;
+  summary?: string;
+  description?: string;
   initialIsOpen?: boolean;
 }>();
 
-// Computed to ensure colors are properly handled
-const cardColors = computed(() => ({
-  badge: props.colors?.badge || 'bg-blue-600',
-  bg: props.colors?.bg || 'bg-blue-50/50',
-  border: props.colors?.border || 'border-blue-200',
+// Computed for card defaults
+const cardConfig = computed(() => ({
+  bg: props.config?.bg || 'bg-blue-50/50',
+  border: props.config?.border || 'border-blue-200',
+  badge: {
+    color: props.config?.badge?.color || 'bg-blue-600',
+    text: props.config?.badge?.text || 'GET',
+  }
 }));
 
 // Internal state for the accordion

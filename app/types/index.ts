@@ -1,67 +1,55 @@
-export interface Badge {
-  text: string;
-  color: string;
-}
-
-export interface Profile {
-  name: string;
-  badges?: Badge[];
-  description: string;
-  phone: string;
-  email: string;
-  location: string;
-  websites: string[];
-}
-
 export interface Education {
-  backgroundColor?: string;
-  borderColor?: string;
   institution: string;
-  badge?: Badge;
-  description: string;
+  location: string;
   degree: string;
   gpa: string;
 }
 
 export interface Skill {
-  backgroundColor?: string;
-  borderColor?: string;
-  name: string;
-  badge?: Badge;
-  description: string;
+  category: string;
+  list: string[];
 }
 
 export interface Achievement {
   name: string;
-  description: string[];
+  descriptions: string[];
   stacks: string[];
 }
 
-export interface WorkExperience {
-  backgroundColor?: string;
-  borderColor?: string;
+export interface Work {
   company: string;
-  badge?: Badge;
   position: string;
   description: string;
   location: string;
   achievements?: Achievement[];
 }
 
-export interface PersonalProject {
-  backgroundColor?: string;
-  borderColor?: string;
+export interface Project {
   name: string;
-  badge?: Badge;
   description: string;
   websites?: string[];
   stacks?: string[];
 }
 
+export interface Badge {
+  text: string;
+  color: string;
+}
+
+export interface Contact {
+  phone: string;
+  email: string;
+}
+
 export interface ResumeData {
-  profile: Profile;
-  education: Education[];
-  skills: Skill[];
-  workExperiences?: WorkExperience[];
-  personalProjects?: PersonalProject[];
+  title: string;
+  badges?: Badge[];
+  summary: string;
+  contact: Contact;
+  location: string;
+  websites?: string[];
+  education?: Education[];
+  skill?: Skill[];
+  work?: Work[];
+  project?: Project[];
 }
