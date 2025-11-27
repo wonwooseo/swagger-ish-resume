@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-5">
+  <div class="mb-10">
     <!-- Section Header -->
     <div
       class="border-b-2 border-gray-200 pb-2 mb-2 flex items-center justify-between cursor-pointer group select-none"
