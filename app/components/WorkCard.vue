@@ -26,7 +26,7 @@
       >
         <BaseSubheading :heading="achievement.name">
           <div class="text-slate-700 mb-5 px-3">
-            <ul class="list-disc list-inside">
+            <ul class="list-disc">
               <li v-for="(desc, sidx) in achievement.descriptions" :key="sidx">{{ desc }}</li>
             </ul>
           </div>
