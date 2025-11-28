@@ -19,19 +19,6 @@
         </ul>
       </div>
     </BaseHeading>
-    <BaseHeading v-if="selectedProject?.stacks" heading="Stacks">
-      <div class="text-slate-700 mb-5 p-3">
-        <div class="flex flex-wrap gap-2">
-          <span
-            v-for="(stack, index) in selectedProject.stacks"
-            :key="index"
-            class="px-2 py-1 rounded text-sm font-medium text-white bg-indigo-500 shadow-sm"
-          >
-            {{ stack }}
-          </span>
-        </div>
-      </div>
-    </BaseHeading>
   </BaseCard>
 </template>
 

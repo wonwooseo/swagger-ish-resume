@@ -28,19 +28,6 @@
             </ul>
           </div>
         </BaseSubheading>
-        <BaseSubheading heading="Stacks">
-          <div class="text-slate-700 mb-5 px-3">
-            <div class="flex flex-wrap gap-2">
-              <span
-                v-for="(stack, sidx) in achievement.stacks"
-                :key="sidx"
-                class="px-2 py-1 rounded text-sm font-medium text-white bg-indigo-500"
-              >
-                {{ stack }}
-              </span>
-            </div>
-          </div>
-        </BaseSubheading>
       </div>
     </BaseHeading>
   </BaseCard>

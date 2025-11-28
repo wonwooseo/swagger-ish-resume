@@ -13,7 +13,6 @@ export interface Skill {
 export interface Achievement {
   name: string;
   descriptions: string[];
-  stacks: string[];
 }
 
 export interface Work {
@@ -28,7 +27,6 @@ export interface Project {
   name: string;
   description: string;
   websites?: string[];
-  stacks?: string[];
 }
 
 export interface Badge {

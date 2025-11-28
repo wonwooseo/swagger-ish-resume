@@ -60,17 +60,10 @@ work:
         descriptions:
           - Developed a high-availability microservices architecture that reduced downtime by 30%.
           - Implemented CI/CD pipelines, decreasing deployment times from hours to minutes.
-        stacks:
-          - Go
-          - Docker
-          - AWS
       - name: System Optimization
         descriptions:
           - Optimized database queries, resulting in a 25% performance improvement for key applications.
           - Mentored junior developers, fostering a culture of continuous learning and improvement.
-        stacks:
-          - Python
-          - PostgreSQL
   - company: Web Solutions LLC
     position: Software Engineering Intern
     description: Assisted in developing web applications and improving user interfaces.
@@ -80,9 +73,6 @@ work:
         descriptions:
           - Redesigned key components of the user interface, enhancing user experience and engagement.
           - Collaborated with senior developers to implement new features based on client feedback.
-        stacks:
-          - JavaScript
-          - HTML/CSS
 
 project:
   - name: Open Source Library XYZ
@@ -97,8 +87,3 @@ project:
     description: Developed a personal portfolio website to showcase projects and skills.
     websites:
       - https://johnsmith.dev
-    stacks:
-      - HTML
-      - CSS
-      - JavaScript
-      - Vue.js
