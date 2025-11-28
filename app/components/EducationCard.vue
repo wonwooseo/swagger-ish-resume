@@ -9,10 +9,13 @@
       :option-display-attribute="'institution'"
       heading="Institution"
     />
-    <BaseHeading :heading="'Degree'">
+    <BaseHeading heading="Location">
+      <div class="text-slate-700 mb-5 p-3">{{ selectedEducation?.location }}</div>
+    </BaseHeading>
+    <BaseHeading heading="Degree">
       <div class="text-slate-700 mb-5 p-3">{{ selectedEducation?.degree }}</div>
     </BaseHeading>
-    <BaseHeading :heading="'GPA'">
+    <BaseHeading heading="GPA">
       <div class="text-slate-700 mb-5 p-3">{{ selectedEducation?.gpa }}</div>
     </BaseHeading>
   </BaseCard>

@@ -12,6 +12,9 @@
     <BaseHeading :heading="'Position'">
       <div class="text-slate-700 mb-5 p-3">{{ selectedWork?.position }}</div>
     </BaseHeading>
+    <BaseHeading v-if="selectedWork?.description" :heading="'Description'">
+      <div class="text-slate-700 mb-5 p-3">{{ selectedWork.description }}</div>
+    </BaseHeading>
     <BaseHeading v-if="selectedWork?.location" :heading="'Location'">
       <div class="text-slate-700 mb-5 p-3">{{ selectedWork.location }}</div>
     </BaseHeading>
