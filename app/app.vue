@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-white p-8 font-sans text-slate-800">
     <div v-if="resumeData" class="max-w-[1000px] mx-auto">
-      <header class="mb-10">
+      <header class="mb-8">
         <div class="flex items-start gap-3 mb-2">
           <!-- TITLE -->
           <h1 class="text-4xl font-bold text-slate-800">{{ resumeData.title || 'Resume' }}</h1>
@@ -40,9 +40,9 @@
       </header>
 
       <!-- LANGUAGE SELECT -->
-      <section class="mb-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-2">
+      <section class="mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5">
         <div class="relative w-full max-w-md">
-          <label class="block font-bold text-slate-700 mb-1">Language</label>
+          <label class="block text-sm font-bold text-slate-700 mb-1">Language</label>
           <select
             v-model="selectedLocale"
             class="w-1/2 p-2 border border-gray-300 rounded bg-white text-sm focus:outline-none focus:border-gray-500"
